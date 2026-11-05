@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="bn"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>SMART FASHION | Online Fashion Store</title><meta name="theme-color" content="#7655c5"><meta name="description" content="SMART FASHION Bangladesh — shop fashion, clothing and accessories online."><link rel="manifest" href="/manifest.webmanifest"><link rel="icon" href="/icon.svg" type="image/svg+xml"><link rel="stylesheet" href="/style.css"></head>
+<body class="store-app">
+<div class="announcement" id="announcement">নতুন কালেকশন এসেছে! ✨</div>
+<header class="app-header">
+  <div class="header-top">
+    <a class="logo" href="/">SMART<span>FASHION</span></a>
+    <div class="header-actions">
+      <button class="icon-btn" aria-label="Notifications" onclick="document.getElementById('products').scrollIntoView({behavior:'smooth'})">♡</button>
+      <button class="icon-btn cart-icon" aria-label="Open cart" onclick="toggleCart()">🛍 <b id="cartCount">0</b></button>
+    </div>
+  </div>
+  <div class="search-wrap">
+    <span>⌕</span><input id="productSearch" type="search" placeholder="পণ্য খুঁজুন... যেমন টি-শার্ট, শাড়ি">
+    <button onclick="runSearch()">খুঁজুন</button>
+  </div>
+</header>
+
+<main>
+  <section class="hero app-hero" id="home">
+    <div class="hero-glass">
+      <span class="hero-tag">NEW SEASON · 2026</span>
+      <h1 id="heroTitle">নিজের স্টাইল,<br><em>নিজের গল্প।</em></h1>
+      <p id="heroSubtitle">প্রতিদিনের ফ্যাশনে নতুন আত্মবিশ্বাস।</p>
+      <a class="hero-cta" href="#products">এখনই শপিং করুন <span>↗</span></a>
+      <div class="hero-dots"><i></i><i></i><i></i></div>
+    </div>
+    <div class="hero-sticker">SMART<br>CHOICE</div>
+  </section>
+
+  <section class="quick-categories" id="categories">
+    <div class="section-heading"><div><small>EXPLORE</small><h2>ক্যাটাগরি</h2></div><a href="#products">সব দেখুন ↗</a></div>
+    <div class="category-strip">
+      <button class="category-tile active" data-category="All" onclick="selectCategory('All',this)"><span>✦</span><b>সব পণ্য</b></button>
+      <button class="category-tile" data-category="Men" onclick="selectCategory('Men',this)"><span>◈</span><b>Men</b></button>
+      <button class="category-tile" data-category="Women" onclick="selectCategory('Women',this)"><span>♡</span><b>Women</b></button>
+      <button class="category-tile" data-category="Kids" onclick="selectCategory('Kids',this)"><span>☼</span><b>Kids</b></button>
+      <button class="category-tile" data-category="Shoes" onclick="selectCategory('Shoes',this)"><span>⌁</span><b>Shoes</b></button>
+      <button class="category-tile" data-category="Accessories" onclick="selectCategory('Accessories',this)"><span>◇</span><b>Access.</b></button>
+    </div>
+  </section>
+
+  <section class="section product-section" id="products">
+    <div class="section-heading"><div><small>HANDPICKED FOR YOU</small><h2>জনপ্রিয় কালেকশন</h2></div><span class="live-count" id="resultCount">20+ Styles</span></div>
+    <div class="filter-row"><button class="filter-chip active" onclick="selectCategory('All',this)">All</button><button class="filter-chip" onclick="selectCategory('Men',this)">Men</button><button class="filter-chip" onclick="selectCategory('Women',this)">Women</button><button class="filter-chip" onclick="selectCategory('Kids',this)">Kids</button><button class="filter-chip" onclick="selectCategory('Accessories',this)">Accessories</button></div>
+    <div class="products" id="productsGrid"><p>পণ্য লোড হচ্ছে...</p></div>
+  </section>
+
+  <section class="promo-banner" id="offers"><div><small>THE SMART EDIT</small><h2 id="promoTitle">কমফোর্টের সাথে<br>স্টাইলের ছোঁয়া।</h2><p id="promoText">আপনার পছন্দের কালেকশন বেছে নিন।</p><a href="#products">EXPLORE NOW ↗</a></div><div class="promo-orb">S<br>F</div></section>
+  <section class="extra-panels">
+  <div class="utility-card"><span>📦</span><h3>অর্ডার ট্র্যাক করুন</h3><p>আপনার অর্ডারের বর্তমান অবস্থা জানুন।</p><button class="outline-btn" onclick="openUtility('trackModal')">ট্র্যাক অর্ডার</button></div>
+  <div class="utility-card"><span>♡</span><h3>আপনার Wishlist</h3><p>পছন্দের পণ্য পরে কেনার জন্য রাখুন।</p><button class="outline-btn" onclick="openWishlist()">Wishlist দেখুন</button></div>
+  <div class="utility-card"><span>✉</span><h3>যোগাযোগ করুন</h3><p>কোনো প্রশ্ন? আমাদের মেসেজ পাঠান।</p><button class="outline-btn" onclick="openUtility('contactModal')">মেসেজ পাঠান</button></div>
+</section>
+<section class="trust-row" id="about"><div><b>৳</b><span><strong>সহজ অর্ডার</strong><small>দ্রুত Checkout</small></span></div><div><b>↗</b><span><strong>সারা বাংলাদেশ</strong><small>ডেলিভারি সুবিধা</small></span></div><div><b>♡</b><span><strong>স্টাইল ও কোয়ালিটি</strong><small>আপনার পছন্দই সেরা</small></span></div></section>
+</main>
+
+<section class="newsletter"><div><small>SMART COMMUNITY</small><h2>নতুন কালেকশনের খবর পান</h2><p>অফার ও নতুন পণ্যের আপডেট সরাসরি ইমেইলে।</p></div><form id="subscribeForm"><input name="email" type="email" placeholder="আপনার ইমেইল" required><button class="primary-btn">SUBSCRIBE</button></form><p id="subscribeMessage"></p></section>
+<footer class="app-footer">
+  <div class="footer-brand"><a class="footer-logo" href="/">SMART<span>FASHION</span></a><p>আপনার প্রতিদিনের স্টাইল, এখন আরও সহজে।</p></div>
+  <div class="footer-links"><a href="#about">About</a><a href="#policies" onclick="openUtility('policyModal');return false">Policies</a><a href="#" onclick="openUtility('contactModal');return false">Contact</a><a href="/admin">Admin</a></div>
+  <div class="footer-bottom"><span>© <span id="year"></span> SMART FASHION. All rights reserved.</span><span>Made for your style.</span></div>
+</footer>
+
+<nav class="bottom-nav" aria-label="Main navigation">
+  <a class="bottom-link active" href="#home"><span>⌂</span><small>Home</small></a>
+  <a class="bottom-link" href="#categories"><span>▦</span><small>Category</small></a>
+  <button class="bottom-link" onclick="document.getElementById('productSearch').focus();window.scrollTo({top:0,behavior:'smooth'})"><span>⌕</span><small>Search</small></button>
+  <button class="bottom-link" onclick="toggleCart()"><span>🛍</span><small>Cart</small></button>
+  <button class="bottom-link" onclick="openAccount()"><span>☺</span><small>Account</small></button>
+</nav>
+
+<div class="overlay" id="overlay" onclick="toggleCart()"></div>
+<aside class="cart" id="cart"><div class="cart-head"><h2>Your Cart</h2><button onclick="toggleCart()">✕</button></div><div id="cartItems"></div><div class="cart-total" id="cartTotal">Total: ৳0</div><button class="primary-btn full" onclick="checkout()">CHECKOUT</button></aside>
+<div class="modal" id="reviewModal"><div class="modal-card"><button class="close" onclick="closeUtility('reviewModal')">✕</button><h2>পণ্যের রিভিউ</h2><div id="reviewList"></div><form id="reviewForm"><input type="hidden" name="product_id"><input name="customer_name" placeholder="আপনার নাম" required><select name="rating"><option value="5">★★★★★ - Excellent</option><option value="4">★★★★ - Good</option><option value="3">★★★ - Average</option><option value="2">★★ - Poor</option><option value="1">★ - Bad</option></select><textarea name="comment" placeholder="আপনার অভিজ্ঞতা লিখুন"></textarea><button class="primary-btn full">রিভিউ জমা দিন</button></form><p id="reviewMessage"></p></div></div>
+<div class="modal" id="trackModal"><div class="modal-card"><button class="close" onclick="closeUtility('trackModal')">✕</button><h2>অর্ডার ট্র্যাকিং</h2><form id="trackForm"><input name="id" type="number" placeholder="Order ID" required><input name="phone" placeholder="অর্ডারে দেওয়া ফোন নম্বর" required><button class="primary-btn full">TRACK ORDER</button></form><div id="trackResult"></div></div></div>
+<div class="modal" id="wishlistModal"><div class="modal-card"><button class="close" onclick="closeUtility('wishlistModal')">✕</button><h2>আপনার Wishlist</h2><div id="wishlistItems"></div></div></div>
+<div class="modal" id="contactModal"><div class="modal-card"><button class="close" onclick="closeUtility('contactModal')">✕</button><h2>যোগাযোগ</h2><form id="contactForm"><input name="name" placeholder="আপনার নাম" required><input name="phone" placeholder="মোবাইল নম্বর"><input name="email" type="email" placeholder="ইমেইল"><input name="subject" placeholder="বিষয়"><textarea name="message" placeholder="আপনার মেসেজ" required></textarea><button class="primary-btn full">SEND MESSAGE</button></form><p id="contactMessage"></p></div></div>
+<div class="modal" id="policyModal"><div class="modal-card"><button class="close" onclick="closeUtility('policyModal')">✕</button><h2>শপিং পলিসি</h2><h3>ডেলিভারি</h3><p>অর্ডার কনফার্ম করার পর ফোনে যোগাযোগ করে ডেলিভারির সময় জানানো হবে। চার্জ Checkout-এ দেখানো হবে।</p><h3>রিটার্ন ও এক্সচেঞ্জ</h3><p>পণ্য হাতে পাওয়ার পর সমস্যা থাকলে দ্রুত আমাদের সাথে যোগাযোগ করুন। ব্যবহৃত বা ক্ষতিগ্রস্ত পণ্যের ক্ষেত্রে এক্সচেঞ্জ প্রযোজ্য নাও হতে পারে।</p><h3>পেমেন্ট</h3><p>Cash on Delivery বর্তমানে উপলব্ধ। bKash/Nagad অপশন নির্বাচনের আগে মার্চেন্ট পেমেন্ট নির্দেশনা নিশ্চিত করুন।</p><h3>প্রাইভেসি</h3><p>অর্ডার প্রসেস করার জন্য দেওয়া নাম, ফোন ও ঠিকানা ব্যবহার করা হবে।</p></div></div>
+<div class="modal" id="accountModal"><div class="modal-card account-modal-card"><button class="close" onclick="closeUtility('accountModal')">✕</button><h2>আপনার Account</h2><div id="accountProfile" class="account-profile" style="display:none"></div><div id="accountAuth"><div class="account-tabs"><button type="button" id="loginTab" class="active" onclick="showAccountTab('login')">Login</button><button type="button" id="registerTab" onclick="showAccountTab('register')">Register</button></div><form id="customerLoginForm" class="account-form"><input name="email" type="email" placeholder="ইমেইল" required><input name="password" type="password" placeholder="পাসওয়ার্ড" required><button class="primary-btn full">LOGIN</button></form><form id="customerRegisterForm" class="account-form" style="display:none"><input name="name" placeholder="আপনার পূর্ণ নাম" required minlength="2"><input name="email" type="email" placeholder="ইমেইল" required><input name="phone" placeholder="মোবাইল নম্বর"><input name="password" type="password" placeholder="কমপক্ষে ৮ অক্ষরের পাসওয়ার্ড" minlength="8" required><button class="primary-btn full">CREATE ACCOUNT</button></form><p class="account-note">Account তৈরি করলে আপনার অর্ডারগুলো এক জায়গায় দেখতে পারবেন।</p></div><p id="accountMessage"></p><div id="myOrders"></div></div></div>
+<div class="modal" id="checkoutModal"><div class="modal-card"><button class="close" onclick="closeCheckout()">✕</button><h2>Checkout</h2><form id="checkoutForm"><input name="customer_name" placeholder="আপনার নাম" required><input name="phone" placeholder="মোবাইল নম্বর" required><textarea name="address" placeholder="সম্পূর্ণ ঠিকানা" required></textarea><div class="coupon-row"><input id="couponInput" placeholder="Coupon code"><button type="button" class="outline-btn" onclick="applyCoupon()">Apply</button></div><p id="couponMessage"></p><input name="city" placeholder="জেলা / শহর"><select name="payment_method"><option>Cash on Delivery</option><option>bKash (ম্যানুয়াল যোগাযোগ প্রয়োজন)</option><option>Nagad (ম্যানুয়াল যোগাযোগ প্রয়োজন)</option></select><button class="primary-btn full">অর্ডার নিশ্চিত করুন</button></form><p id="checkoutMessage"></p></div></div>
+<script src="/store.js"></script><script>if("serviceWorker" in navigator){window.addEventListener("load",()=>navigator.serviceWorker.register("/sw.js").catch(()=>{}))}</script></body></html>
